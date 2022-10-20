@@ -13,6 +13,7 @@ import Explore from "./screens/Explore/Explore"
 import Crypto from "./screens/Crypto/Crypto"
 import Learn from "./screens/Learn/Learn";
 import Lesson from "./screens/Lesson/Lesson"
+import Transaction from "./screens/Transaction/Transaction"
 const AppNavigator = () => {
   return (
     <NavigationContainer>
@@ -24,6 +25,7 @@ const AppNavigator = () => {
         <Stack.Screen name = "Crypto" component={Crypto}/>
         <Stack.Screen name = "Learn" component={Learn}/>
         <Stack.Screen name = "Lesson" component={Lesson}/>
+        <Stack.Screen name = "Transaction" component={Transaction}/>
       </Stack.Navigator>
       {/* <Drawer.Navigator useLegacyImplementation initialRouteName="Login">
         <Drawer.Screen name = "Login" component={Login}/>

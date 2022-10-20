@@ -21,7 +21,7 @@ function LessonQuiz(props){
     const [correctCount, setCorrectCount] = useState(0);
     const [complete, setComplete] = useState(false);
 
-    const [answer, setAnswer] = useState('Sample answer')
+    const [answer, setAnswer] = useState('')
     const [answerOnly, setAnswerOnly] = useState(false)
     const [showCheck, setShowCheck] = useState(true);
     const [leftShow, setLeftShow] = useState(false);
@@ -138,6 +138,7 @@ function LessonQuiz(props){
                     label="Information:"
                     placeholder={""}
                     editable={!answerOnly}
+                    disabled={answerOnly}
                     placeholderTextColor="#c9c9c9"
                     value={answer}
                     onChangeText = {(text)=>{

@@ -55,6 +55,7 @@ function FormInput (props) {
                     {
                         (props.type === "textview")
                         ? <TextInput
+                            disabled={props.disabled}
                             // style={[styles.textView, {fontFamily: font}]}
                             style={styles.textView}
                             editable={props.editable}

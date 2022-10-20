@@ -25,12 +25,23 @@ function Footer(props) {
             case 3: 
                 navigation.navigate("Learn");
                 break;
+            case 4:
+                navigation.navigate("Transaction")
+                break;
         }
         
     }
     return(
         <ContextMenu
-            actions={[{title: 'Home'}, {title: 'Contact'}, {title: 'Explore'}, {title: 'Learn'}]}
+            actions={
+                [
+                    {title: 'Home'}, 
+                    {title: 'Contact'}, 
+                    {title: 'Explore'}, 
+                    {title: 'Learn'}, 
+                    {title: 'Transaction'}
+                ]
+            }
             onPress={e => {
             // console.warn(
             //     `Pressed ${e.nativeEvent.name} at index ${e.nativeEvent.index}`,
