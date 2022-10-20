@@ -15,6 +15,7 @@ import Learn from "./screens/Learn/Learn";
 import Lesson from "./screens/Lesson/Lesson"
 import Transaction from "./screens/Transaction/Transaction"
 import Setting from "./screens/Settings/Settings";
+import Portolio from "./screens/Portfolio/Portfolio";
 
 const AppNavigator = () => {
   return (
@@ -29,6 +30,7 @@ const AppNavigator = () => {
         <Stack.Screen name = "Lesson" component={Lesson}/>
         <Stack.Screen name = "Transaction" component={Transaction}/>
         <Stack.Screen name = "Setting" component={Setting}/>
+        <Stack.Screen name = "Portfolio" component={Portolio}/>
       </Stack.Navigator>
       {/* <Drawer.Navigator useLegacyImplementation initialRouteName="Login">
         <Drawer.Screen name = "Login" component={Login}/>

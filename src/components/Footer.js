@@ -31,6 +31,9 @@ function Footer(props) {
             case 5:
                 navigation.navigate("Setting");
                 break;
+            case 6:
+                navigation.navigate("Portfolio");
+                break;
         }
         
     }
@@ -43,7 +46,8 @@ function Footer(props) {
                     {title: 'Explore'}, 
                     {title: 'Learn'}, 
                     {title: 'Transaction'},
-                    {title: 'Setting'}
+                    {title: 'Setting'},
+                    {title: 'Portfolio'}
                 ]
             }
             onPress={e => {

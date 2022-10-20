@@ -7,7 +7,7 @@ import TopNavBar from '../../components/TopNavBar';
 import Colors from '../../theme/Colors';
 import Footer from "../../components/Footer"
 import * as Storage from '../../services/Storage';
-import {BACKEND_URL, COIN_PLACEHOLDER, COIN_LOGO} from '@env';
+import {BACKEND_URL} from '@env';
 
 function Transaction (){
     let [ data, setData ] = useState([])
