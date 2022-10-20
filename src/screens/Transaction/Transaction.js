@@ -1,6 +1,6 @@
-import {View, Text, Image, StyleSheet, SafeAreaView} from 'react-native';
+import {View, StyleSheet, SafeAreaView} from 'react-native';
 import {useState, useEffect} from 'react';
-import { Table, TableWrapper, Row } from 'react-native-table-component';
+import { Table, Row } from 'react-native-table-component';
 import axios from 'axios';
 
 import TopNavBar from '../../components/TopNavBar';
@@ -11,7 +11,6 @@ import {BACKEND_URL, COIN_PLACEHOLDER, COIN_LOGO} from '@env';
 
 function Transaction (){
     let [ data, setData ] = useState([])
-    let [ firstLoad, setFirstLoad] = useState(true)
     const [balance, setBalance] = useState(0);
     const [tableHead, setTableHead] = useState(['Date', 'Symbol', 'Quantity', 'Price', 'Action'])
     const [width, setWidth] = useState([120, 80, 80, 80, 80])
@@ -64,6 +63,7 @@ function Transaction (){
                     </Table>
                 </View>
             </View>
+            <Footer/>
         </SafeAreaView>
     )
 }
