@@ -1,0 +1,1 @@
+export const TOAST_SHOW_TIME = 2000;
