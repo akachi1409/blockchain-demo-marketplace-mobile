@@ -13,7 +13,7 @@ function Transaction (){
     let [ data, setData ] = useState([])
     const [balance, setBalance] = useState(0);
     const [tableHead, setTableHead] = useState(['Date', 'Symbol', 'Quantity', 'Price', 'Action'])
-    const [width, setWidth] = useState([120, 80, 80, 80, 80])
+    // const [width, setWidth] = useState([120, 80, 80, 80, 80])
     useEffect(() => {
         async function getBalanceAndHistory() {
             const token = await Storage.TOKEN.get();
@@ -51,12 +51,12 @@ function Transaction (){
             <View style={styles.container}>
                 <View style={styles.contentView}>
                     <Table borderStyle={{borderWidth: 1, borderColor: '#C1C0B9'}}>
-                        <Row data = {tableHead} widthArr={width} style={styles.headStyle}/>
+                        <Row data = {tableHead} style={styles.headStyle}/>
                     </Table>
                     <Table borderStyle={{borderWidth: 1, borderColor: '#C1C0B9'}}>
                         {data?
                         data.map((rowData, index)=>(
-                            <Row key={index} data={rowData} widthArr={width} style={styles.bodyStyle} />
+                            <Row key={index} data={rowData} style={styles.bodyStyle} />
                         )
                         ): (<></>)
                     }

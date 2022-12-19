@@ -13,9 +13,9 @@ import * as Storage from "../../services/Storage"
 import {BACKEND_URL } from "@env"
 
 function Login(props){
-  const [email, setEmail] = useState('Akachi1');
+  const [email, setEmail] = useState('Akachi');
   const [emailError, setEmailError] = useState('');
-  const [password, setPassword] = useState('Akachi1');
+  const [password, setPassword] = useState('Akachi123');
   const [passwordError, setPasswordError] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [response, setResponse] = useState({});

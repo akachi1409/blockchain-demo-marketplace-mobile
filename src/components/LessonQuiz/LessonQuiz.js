@@ -134,7 +134,7 @@ function LessonQuiz(props){
             <View style={styles.answerView}>
 
                 <FormInput 
-                    type="textview"
+                    type="text"
                     label="Information:"
                     placeholder={""}
                     editable={!answerOnly}
