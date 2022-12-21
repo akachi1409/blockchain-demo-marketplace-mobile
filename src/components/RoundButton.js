@@ -41,7 +41,7 @@ export default class RoundButton extends React.Component {
 	    	{ 
 	    		this.props.theme == "orange"
 	    		? <View style={[styles.buttonContainer, styles.orangeButton]}>
-					<Text style={[styles.buttonText, styles.blackText]}>{this.props.title}</Text>
+					<Text style={[styles.buttonText, styles.whiteText]}>{this.props.title}</Text>
 	    		  </View>
 	    		: null
 	    	}
@@ -128,9 +128,9 @@ const styles = StyleSheet.create({
 	},
 
 	orangeButton: {
-		backgroundColor: '#F5C723',
+		backgroundColor: '#CCCC00',
 		borderWidth: 2,
-		borderColor: '#F5C723',
+		borderColor: '#CCCC00',
 	},
 
 	blackButton: {
@@ -154,7 +154,7 @@ const styles = StyleSheet.create({
 	},
 
 	whiteText: {
-		color: 'white',
+		color: '#FFFFFF',
 	},
 
 	blackText: {

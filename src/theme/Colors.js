@@ -1,5 +1,5 @@
 const Colors = {
-    appColor: '#02857f',
+    appColor: '#FF0000',
     appColor2: '#fbc200',
     appButton: '#00c2c1',
     navColor: '#0f0d3c',

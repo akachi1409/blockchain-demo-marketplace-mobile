@@ -63,13 +63,12 @@ function Lesson({props, route}){
 const styles = StyleSheet.create({
     container: {
       flex: 1,
-      backgroundColor: Colors.pageColor,
-      borderTopLeftRadius: 25,
-      borderTopRightRadius: 25,
+      backgroundColor: 'red',
     },
     contentView: {
       paddingTop: 30,
       paddingHorizontal: 30,
+      backgroundColor: 'red',
     },
     titleView:{
         paddingBottom: 10,
@@ -81,7 +80,7 @@ const styles = StyleSheet.create({
       fontWeight: '400',
       marginBottom: 3,
       fontSize: 22,
-      color: Colors.blackColor,
+      color: 'white',
       textAlign: 'center',
       paddingLeft: 10,
       paddingRight: 10,
@@ -90,10 +89,10 @@ const styles = StyleSheet.create({
         fontWeight: '400',
         marginBottom: 3,
         fontSize: 18,
-        color: Colors.subTextColor,
+        color: 	'#F0FFF0',
         textAlign: 'center',
         paddingRight: 10,
-        backgroundColor: Colors.pageColor,
+        backgroundColor: 'red',
       },
 })
 export default Lesson

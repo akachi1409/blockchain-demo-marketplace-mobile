@@ -30,6 +30,7 @@ const styles = StyleSheet.create({
     contentView: {
         paddingTop: 30,
         paddingHorizontal: 30,
+        // backgroundColor: 'white'
     },
     cardView:{
         paddingVertical: 10,

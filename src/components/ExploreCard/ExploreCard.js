@@ -28,6 +28,7 @@ function ExploreCard(item){
 const styles = StyleSheet.create({
 
     contentView: {
+        
         paddingTop: 30,
         paddingHorizontal: 30,
     },
@@ -38,7 +39,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         color: 'white',
         cursor: 'pointer',
-        backgroundColor: 'grey',
+        backgroundColor: '#FFFFFF',
         borderRadius: 16,
         display: 'flex',
         flexDirection: 'row',
@@ -54,7 +55,7 @@ const styles = StyleSheet.create({
     cardText:{
         flex:1,
         textAlgin: 'center',
-        color: 'white'
+        color: 'black'
     },
     title: {
       fontWeight: '400',

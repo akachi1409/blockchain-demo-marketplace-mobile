@@ -169,7 +169,7 @@ function LessonQuiz(props){
                     showCheck && complete && (
                         <RoundButton
                             title="Continue"
-                            theme="blue"
+                            theme="orange"
                             style={styles.checkButton}
                             onPress={() => advanceLessons()}
                         />
@@ -179,7 +179,7 @@ function LessonQuiz(props){
                     showCheck && !complete && (
                         <RoundButton
                             title="Check"
-                            theme="blue"
+                            theme="orange"
                             style={styles.checkButton}
                             onPress={() => checkAnswer()}
                         />
@@ -215,7 +215,7 @@ const styles = StyleSheet.create({
         fontWeight: '400',
         marginBottom: 3,
         fontSize: 20,
-        color: Colors.blackColor,
+        color: 'white',
         textAlign: 'center',
         paddingLeft: 10,
         paddingRight: 10,

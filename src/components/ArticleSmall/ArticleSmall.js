@@ -25,14 +25,16 @@ const styles = StyleSheet.create({
     articleView:{
         paddingBottom: 3,
         borderRadius: 4,
-        borderColor: 'rgba(0, 0, 0, 1)',
+        borderColor: 'black',
         borderWidth: 2,
-        marginTop: 3
+        marginTop: 3,
+        color: 'white',
+        backgroundColor: 'white'
     },
     titleView: {
         flex: 1,
         alignItems: 'center',
-        color: Colors.newJobTextColor,
+        color: 'black',
         fontSize: 20,
     },
     articleImage: {

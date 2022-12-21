@@ -43,7 +43,7 @@ function Learn(){
       }, [lessonCount]);
 
     return(
-        <SafeAreaView style={{flex: 1, backgroundColor: 'white'}}>
+        <SafeAreaView style={{flex: 1}}>
             <TopNavBar title="Learn"  balance={balance} />
             <ScrollView style={styles.container}>
                 <View style={styles.contentView}>
@@ -68,9 +68,7 @@ function Learn(){
 const styles = StyleSheet.create({
     container: {
       flex: 1,
-      backgroundColor: Colors.pageColor,
-      borderTopLeftRadius: 25,
-      borderTopRightRadius: 25,
+      backgroundColor: 'red',
     },
     contentView: {
       paddingTop: 30,

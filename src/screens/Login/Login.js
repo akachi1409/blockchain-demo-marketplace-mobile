@@ -4,6 +4,7 @@ import Toast from 'react-native-toast-message';
 import axios from 'axios';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 
+import Colors from '../../theme/Colors';
 import FormInput from "../../components/FormInput"
 import RoundButton from "../../components/RoundButton"
 import LoadingOverlay from "../../components/LoadingOverlay";
@@ -109,7 +110,7 @@ function Login(props){
                   <View style={[styles.centerView, {marginTop: 0}]}>
                     <RoundButton
                       title="LOGIN"
-                      theme="blue"
+                      theme="orange"
                       style={styles.loginButton}
                       onPress={() => onLogin()} />
                   </View>
@@ -127,7 +128,7 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         height: '100%',
-        backgroundColor: 'white'
+        backgroundColor: '#FF0000'
       },
     
       contentView: {
@@ -135,6 +136,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         paddingLeft: 25,
         paddingRight: 25,
+        backgroundColor: '#FF0000'
         // ...ifIphoneX({
         //   marginTop: 20,
         // }, {
@@ -143,6 +145,8 @@ const styles = StyleSheet.create({
       },
     
       logoImage: {
+        marginTop: 100,
+        marginBottom: 50,
         width: 300,
         height: 245,
         resizeMode: 'contain',

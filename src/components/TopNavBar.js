@@ -14,7 +14,7 @@ const styles = StyleSheet.create({
 		zIndex: 3,
         display: 'flex',
         flexDirection: 'row',
-        backgroundColor: '#383c47',
+        backgroundColor: 'red',
         color: '#d1d1d1',
         fontSize: '2.3em',
         alignItems: 'center',

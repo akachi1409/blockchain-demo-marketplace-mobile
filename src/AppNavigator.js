@@ -17,6 +17,7 @@ import Transaction from "./screens/Transaction/Transaction"
 import Setting from "./screens/Settings/Settings";
 import Portolio from "./screens/Portfolio/Portfolio";
 import Trade from "./screens/Trade/Trade";
+import Margin from "./screens/Margin/Margin";
 
 const AppNavigator = () => {
   return (
@@ -33,6 +34,7 @@ const AppNavigator = () => {
         <Stack.Screen name = "Setting" component={Setting}/>
         <Stack.Screen name = "Portfolio" component={Portolio}/>
         <Stack.Screen name = "Trade" component={Trade}/>
+        <Stack.Screen name = "Margin" component={Margin}/>
       </Stack.Navigator>
       {/* <Drawer.Navigator useLegacyImplementation initialRouteName="Login">
         <Drawer.Screen name = "Login" component={Login}/>

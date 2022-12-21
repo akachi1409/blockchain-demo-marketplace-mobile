@@ -138,12 +138,12 @@ function Portfolio (){
             <View style={styles.container}>
                 <View style={styles.contentView}>
                     <Table borderStyle={{borderWidth: 1, borderColor: '#C1C0B9'}}>
-                        <Row data = {tableHead} widthArr={width} style={styles.headStyle}/>
+                        <Row data = {tableHead}style={styles.headStyle}/>
                     </Table>
                     <Table borderStyle={{borderWidth: 1, borderColor: '#C1C0B9'}}>
                         {cryptos?
                         cryptos.map((rowData, index)=>(
-                            <Row key={index} data={rowData} widthArr={width} style={styles.bodyStyle} />
+                            <Row key={index} data={rowData} style={styles.bodyStyle} />
                         )
                         ): (<></>)
                     }
@@ -182,6 +182,7 @@ function Portfolio (){
                      */}
                 </View>
             </View>
+            <Footer />
         </SafeAreaView>
     )
 }
@@ -189,9 +190,7 @@ function Portfolio (){
 const styles = StyleSheet.create({
     container: {
       flex: 1,
-      backgroundColor: Colors.pageColor,
-      borderTopLeftRadius: 25,
-      borderTopRightRadius: 25,
+      backgroundColor: 'red'
     },
     contentView: {
         paddingTop: 30,
@@ -200,13 +199,13 @@ const styles = StyleSheet.create({
     headStyle: {
         height: 50,
         alignContent: "center",
-        backgroundColor: '#808B97',
+        backgroundColor: 'white',
         textAlign: 'center'
     },
     bodyStyle: {
         height: 50,
         alignContent: "center",
-        backgroundColor: '#FFF1C1',
+        backgroundColor: 'white',
         textAlign: 'center'
     }
 })

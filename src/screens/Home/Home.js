@@ -94,7 +94,7 @@ function Home(props) {
   //   getAllocations();
   // });
   return (
-    <View style={{flex: 1, backgroundColor: 'white'}}>
+    <View style={{flex: 1}}>
       <TopNavBar title="Home" balance={balance} />
       <View style={styles.container}>
         <View style={styles.contentView}>
@@ -112,9 +112,7 @@ function Home(props) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: Colors.pageColor,
-    borderTopLeftRadius: 25,
-    borderTopRightRadius: 25,
+    backgroundColor: 'red',
   },
   contentView: {
     paddingTop: 30,
@@ -124,6 +122,7 @@ const styles = StyleSheet.create({
     fontWeight: '400',
     marginBottom: 3,
     fontSize: 20,
+    color: 'white'
   },
   navigateButton: {
     // marginTop: 25,

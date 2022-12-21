@@ -70,9 +70,7 @@ function Transaction (){
 const styles = StyleSheet.create({
     container: {
       flex: 1,
-      backgroundColor: Colors.pageColor,
-      borderTopLeftRadius: 25,
-      borderTopRightRadius: 25,
+      backgroundColor: 'red',
     },
     contentView: {
         paddingTop: 30,
@@ -81,13 +79,13 @@ const styles = StyleSheet.create({
     headStyle: {
         height: 50,
         alignContent: "center",
-        backgroundColor: '#808B97',
-        textAlign: 'center'
+        backgroundColor: 'white',
+        textAlign: 'center',
     },
     bodyStyle: {
         height: 50,
         alignContent: "center",
-        backgroundColor: '#FFF1C1',
+        backgroundColor: 'white',
         textAlign: 'center'
     }
 })

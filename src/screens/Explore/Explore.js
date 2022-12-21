@@ -72,9 +72,9 @@ function Explore(props) {
 const styles = StyleSheet.create({
     container: {
       flex: 1,
-      backgroundColor: Colors.pageColor,
-      borderTopLeftRadius: 25,
-      borderTopRightRadius: 25,
+      backgroundColor: '#FF0000',
+    //   borderTopLeftRadius: 25,
+    //   borderTopRightRadius: 25,
     },
     contentView: {
       paddingTop: 30,
@@ -84,15 +84,15 @@ const styles = StyleSheet.create({
       fontWeight: '400',
       marginBottom: 3,
       fontSize: 20,
-      color: Colors.blackColor,
+      color: '#FFFFFF',
       textAlign: 'center'
     },
     flatView:{
-        borderColor: Colors.blackColor,
+        borderColor: '#FFFFFF',
         borderRadius: 3,
         borderWidth: 1,
         marginVertical: 20,
-        height: '70%', 
+        height: '90%', 
         paddingVertical: 10
     }
   });
