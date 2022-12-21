@@ -153,9 +153,7 @@ function Crypto({props, route}) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: Colors.pageColor,
-    borderTopLeftRadius: 25,
-    borderTopRightRadius: 25,
+    backgroundColor: 'red'
   },
   contentView: {
     paddingTop: 30,
@@ -180,7 +178,7 @@ const styles = StyleSheet.create({
     fontWeight: '700',
     marginBottom: 3,
     fontSize: 30,
-    color: Colors.blackColor,
+    color: 'white',
     textAlign: 'center',
     paddingLeft: 10,
     paddingRight: 10,
@@ -189,20 +187,21 @@ const styles = StyleSheet.create({
     fontWeight: '400',
     marginBottom: 3,
     fontSize: 15,
-    color: Colors.subTextColor,
+    color: 'white',
     textAlign: 'center',
     paddingRight: 10,
-    backgroundColor: Colors.pageColor,
+    backgroundColor: 'red',
   },
   text: {
     fontWeight: '400',
     textAlign: 'center',
     paddingLeft: 10,
     paddingRight: 10,
+    color: 'white',
   },
   priceText: {
     fontWeight: '400',
-    color: Colors.subTextColor,
+    color: 'white',
     textAlign: 'center',
     paddingRight: 10,
   },
@@ -210,7 +209,7 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     marginBottom: 3,
     fontSize: 25,
-    color: Colors.blackColor,
+    color: 'white',
     textAlign: 'center',
     paddingLeft: 10,
     paddingRight: 10,

@@ -1,8 +1,10 @@
 import {View, Text, Image, StyleSheet, Modal} from 'react-native';
 import {useState, useEffect} from 'react';
 import axios from 'axios';
+import Toast from 'react-native-toast-message';
 
-import FormInput from "../../components/FormInput"
+import Messages from '../../theme/Messages';
+import FormInput from '../../components/FormInput';
 import TopNavBar from '../../components/TopNavBar';
 import Colors from '../../theme/Colors';
 import Footer from '../../components/Footer';
@@ -24,13 +26,26 @@ function Margin({props, route}) {
       USD: {price: 0, percent_change_24h: 0, volume_24h: 0, market_cap: 0},
     },
   });
+  const [ownedAmount, setOwnedAmount] = useState(0);
   const [addDialogOpen, setAddDialogOpen] = useState(false);
   const [dropDialogOpen, setDropDialogOpen] = useState(false);
   const [cancelAlertOpen, setCancelAlertOpen] = useState(false);
-  const [failAlertOpen, setFailAlertOpen] = useState(false);
-  const [addSuccessAlertOpen, setAddSuccessAlertOpen] = useState(false);
   const [dropSuccessAlertOpen, setDropSuccessAlertOpen] = useState(false);
   const [buyNum, setBuyNum] = useState(10);
+
+  async function getOwnedAmount() {
+    try {
+      const res = await axios.get(
+        `${process.env.REACT_APP_BACKEND_URL}/user/assets/${symbol}`,
+        {headers: authHeader},
+      );
+      const data = res.data.amount;
+      setOwnedAmount(data);
+    } catch (err) {
+      console.log('Error fetching amount owned');
+      console.log(err);
+    }
+  }
 
   useEffect(() => {
     async function getCoinData() {
@@ -60,6 +75,7 @@ function Margin({props, route}) {
       const data = res.data;
       setBalance(data.balance);
     }
+    getOwnedAmount();
     getCoinData();
     getBalance();
   }, []);
@@ -97,8 +113,65 @@ function Margin({props, route}) {
   function handleAddDialogOpen() {
     setAddDialogOpen(true);
   }
+
+  async function handleAddDialogConfirm() {
+    setAddDialogOpen(false);
+    if (buyNum <= 0) {
+      Toast.show({
+        type: 'error',
+        text1: Messages.TradeError,
+        position: 'bottom',
+      });
+      setAddDialogOpen(false);
+    } else {
+      try {
+        const token = await Storage.TOKEN.get();
+        const authHeader = {Authorization: 'JWT ' + token};
+        await axios.post(
+          BACKEND_URL + "/user/update/assets/" + coinData.symbol,
+          {amount: buyNum},
+          {headers: authHeader},
+        );
+        Toast.show({
+          type: 'success',
+          text1: Messages.SellSuccess,
+          position: 'bottom',
+        })
+      } catch (err) {
+        console.log('Error updating user assets');
+        Toast.show({
+          type: 'error',
+          text1: BACKEND_URL +  + "/user/update/assets/" + coinData.symbol,
+          position: 'bottom',
+        });
+      }
+    }
+    getOwnedAmount();
+  }
+
   function handleDropDialogOpen() {
     setDropDialogOpen(true);
+  }
+  async function handleDropDialogConfirm() {
+    setDropDialogOpen(false);
+    if (buyNum === 0 || buyNum <= 0 || buyNum > ownedAmount) {
+      setDropDialogOpen(false);
+    } else {
+      try {
+        const token = await Storage.TOKEN.get();
+        const authHeader = {Authorization: 'JWT ' + token};
+        await axios.post(
+          BACKEND_URL + '/user/update/assets/' + coinData.symbol,
+          {amount: dropAmount * -1},
+          {headers: authHeader},
+        );
+        setDropSuccessAlertOpen(true);
+      } catch (err) {
+        console.log('Error updating user assets');
+        console.log(err.response.data);
+      }
+    }
+    getOwnedAmount();
   }
   function handleAddDialogClose() {
     setAddDialogOpen(false);
@@ -121,38 +194,42 @@ function Margin({props, route}) {
         transparent={true}
         visible={addDialogOpen}
         // onRequestClose={() => handleAddDialogClose()}
-        >
+      >
         <View style={styles.centeredView}>
           <View style={styles.modalView}>
             <Text style={styles.title}>Buy {coinData.symbol}</Text>
             <View style={styles.formView}>
-                <FormInput
+              <Text style={styles.text}>
+                You currently have {ownedAmount} {coinData.symbol}. Your changes
+                will be reflected in your allocation pie chart.
+              </Text>
+              <FormInput
                 label="Quantity"
                 placeholder="10"
                 type="text"
                 value={buyNum}
-                onChangeText={(text)=> setBuyNum(text)}/>
-                <View style={[styles.centerView, {marginTop: 20}]}>
+                onChangeText={text => setBuyNum(text)}
+              />
+              <View style={[styles.centerView, {marginTop: 20}]}>
                 <RoundButton
-                    title="Buy"
-                    theme="blue"
-                    style={styles.loginButton}
-                    onPress={() => handleAddDialogOpen()}
+                  title="Confirm"
+                  theme="blue"
+                  style={styles.loginButton}
+                  onPress={() => handleAddDialogConfirm()}
                 />
-                </View>
-                <View style={[styles.centerView, {marginTop: 20}]}>
+              </View>
+              <View style={[styles.centerView, {marginTop: 20}]}>
                 <RoundButton
-                    title="Sell1"
-                    theme="orange"
-                    style={styles.loginButton}
-                    onPress={() => handleDropDialogOpen()}
+                  title="Sell1"
+                  theme="orange"
+                  style={styles.loginButton}
+                  onPress={() => handleDropDialogOpen()}
                 />
-                </View>
+              </View>
             </View>
           </View>
         </View>
-
-        </Modal>
+      </Modal>
       <TopNavBar title="Trade" balance={balance} />
       <View style={styles.container}>
         <View style={styles.contentView}>
@@ -226,6 +303,7 @@ function Margin({props, route}) {
           </View>
         </View>
       </View>
+      <Toast />
       <Footer />
     </View>
   );
@@ -297,32 +375,32 @@ const styles = StyleSheet.create({
   },
   centeredView: {
     flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    marginTop: 22
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop: 22,
   },
   modalView: {
-    width: "80%",
-    backgroundColor: "white",
+    width: '80%',
+    backgroundColor: 'white',
     borderRadius: 20,
     padding: 30,
-    alignItems: "center",
-    shadowColor: "#000",
+    alignItems: 'center',
+    shadowColor: '#000',
     shadowOffset: {
       width: 0,
-      height: 2
+      height: 2,
     },
     shadowOpacity: 0.25,
     shadowRadius: 4,
-    elevation: 5
+    elevation: 5,
   },
   modalText: {
     marginBottom: 15,
-    textAlign: "center"
+    textAlign: 'center',
   },
   formView: {
     width: '100%',
-    marginTop: 2
+    marginTop: 2,
     // ...ifIphoneX({
     //   marginTop: 20,
     // }, {
