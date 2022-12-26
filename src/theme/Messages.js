@@ -5,6 +5,8 @@ const Messages = {
 	TradeError: 'Please input a valid amount to trade.',
 	BuySuccess: 'Successfully buy crypto.',
 	SellSuccess: 'Successfully sell crypto.',
+	BuyError: 'Error in buying crypto.',
+	SellError: 'Error in selling crypto.'
 };
 
 export default Messages;

@@ -30,13 +30,14 @@ function Margin({props, route}) {
   const [addDialogOpen, setAddDialogOpen] = useState(false);
   const [dropDialogOpen, setDropDialogOpen] = useState(false);
   const [cancelAlertOpen, setCancelAlertOpen] = useState(false);
-  const [dropSuccessAlertOpen, setDropSuccessAlertOpen] = useState(false);
   const [buyNum, setBuyNum] = useState(10);
-
+  const [sellNum, setSellNum] = useState(10);
   async function getOwnedAmount() {
     try {
+      const token = await Storage.TOKEN.get();
+      const authHeader = {Authorization: 'JWT ' + token};
       const res = await axios.get(
-        `${process.env.REACT_APP_BACKEND_URL}/user/assets/${symbol}`,
+        BACKEND_URL + "/user/assets/" + symbol,
         {headers: authHeader},
       );
       const data = res.data.amount;
@@ -46,6 +47,10 @@ function Margin({props, route}) {
       console.log(err);
     }
   }
+
+  useEffect(()=> {
+    getOwnedAmount();
+  },[])
 
   useEffect(() => {
     async function getCoinData() {
@@ -75,7 +80,7 @@ function Margin({props, route}) {
       const data = res.data;
       setBalance(data.balance);
     }
-    getOwnedAmount();
+    
     getCoinData();
     getBalance();
   }, []);
@@ -99,7 +104,6 @@ function Margin({props, route}) {
           },
         );
         const data = res.data.cryptoInfo;
-        // console.log("data", data);
         setCoinInfo(data.description);
       } catch (err) {
         console.log('Error fetching info');
@@ -129,19 +133,19 @@ function Margin({props, route}) {
         const authHeader = {Authorization: 'JWT ' + token};
         await axios.post(
           BACKEND_URL + "/user/update/assets/" + coinData.symbol,
-          {amount: buyNum},
+          {amount: parseInt(buyNum)},
           {headers: authHeader},
         );
         Toast.show({
           type: 'success',
-          text1: Messages.SellSuccess,
+          text1: Messages.BuySuccess,
           position: 'bottom',
         })
       } catch (err) {
         console.log('Error updating user assets');
         Toast.show({
           type: 'error',
-          text1: BACKEND_URL +  + "/user/update/assets/" + coinData.symbol,
+          text1: Messages.BuyError,
           position: 'bottom',
         });
       }
@@ -154,21 +158,35 @@ function Margin({props, route}) {
   }
   async function handleDropDialogConfirm() {
     setDropDialogOpen(false);
-    if (buyNum === 0 || buyNum <= 0 || buyNum > ownedAmount) {
-      setDropDialogOpen(false);
+    if (sellNum === 0 || sellNum <= 0 || sellNum > parseInt(ownedAmount)) {
+      Toast.show({
+        type: 'error',
+        // text1: Messages.TradeError,
+        text1: sellNum + ownedAmount,
+        position: 'bottom',
+      });
     } else {
       try {
         const token = await Storage.TOKEN.get();
         const authHeader = {Authorization: 'JWT ' + token};
         await axios.post(
           BACKEND_URL + '/user/update/assets/' + coinData.symbol,
-          {amount: dropAmount * -1},
+          {amount: parseInt(sellNum) * -1},
           {headers: authHeader},
         );
-        setDropSuccessAlertOpen(true);
+        Toast.show({
+          type: 'success',
+          text1: Messages.SellSuccess,
+          position: 'bottom',
+        })
       } catch (err) {
         console.log('Error updating user assets');
         console.log(err.response.data);
+        Toast.show({
+          type: 'error',
+          text1: Messages.SellError,
+          position: 'bottom',
+        });
       }
     }
     getOwnedAmount();
@@ -193,7 +211,6 @@ function Margin({props, route}) {
         animationType="slide"
         transparent={true}
         visible={addDialogOpen}
-        // onRequestClose={() => handleAddDialogClose()}
       >
         <View style={styles.centeredView}>
           <View style={styles.modalView}>
@@ -220,10 +237,50 @@ function Margin({props, route}) {
               </View>
               <View style={[styles.centerView, {marginTop: 20}]}>
                 <RoundButton
-                  title="Sell1"
+                  title="Cancel"
                   theme="orange"
                   style={styles.loginButton}
-                  onPress={() => handleDropDialogOpen()}
+                  onPress={() => handleAddDialogClose()}
+                />
+              </View>
+            </View>
+          </View>
+        </View>
+      </Modal>
+      <Modal
+        animationType="slide"
+        transparent={true}
+        visible={dropDialogOpen}
+      >
+        <View style={styles.centeredView}>
+          <View style={styles.modalView}>
+            <Text style={styles.title}>Sell {coinData.symbol}</Text>
+            <View style={styles.formView}>
+              <Text style={styles.text}>
+                You currently have {ownedAmount} {coinData.symbol}. Your changes
+                will be reflected in your allocation pie chart.
+              </Text>
+              <FormInput
+                label="Quantity"
+                placeholder="10"
+                type="text"
+                value={sellNum}
+                onChangeText={text => setSellNum(text)}
+              />
+              <View style={[styles.centerView, {marginTop: 20}]}>
+                <RoundButton
+                  title="Confirm"
+                  theme="blue"
+                  style={styles.loginButton}
+                  onPress={() => handleDropDialogConfirm()}
+                />
+              </View>
+              <View style={[styles.centerView, {marginTop: 20}]}>
+                <RoundButton
+                  title="Cancel"
+                  theme="orange"
+                  style={styles.loginButton}
+                  onPress={() => handleDropDialogClose()}
                 />
               </View>
             </View>
@@ -294,7 +351,7 @@ function Margin({props, route}) {
             </View>
             <View style={[styles.centerView, {marginTop: 20}]}>
               <RoundButton
-                title="Sell1"
+                title="Sell"
                 theme="orange"
                 style={styles.loginButton}
                 onPress={() => handleDropDialogOpen()}
