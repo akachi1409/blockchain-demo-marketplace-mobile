@@ -166,7 +166,7 @@ const styles = StyleSheet.create({
     },
 
     labelText: {
-        color: '#FFFFFF',
+        color: '#989898',
         // fontFamily: Fonts.bold,
         fontSize: 14,
         marginBottom: 10,
@@ -177,7 +177,7 @@ const styles = StyleSheet.create({
         paddingHorizontal: 20,
         borderRadius: 25,
         // fontFamily: Fonts.bold,
-        backgroundColor: 'white',
+        backgroundColor: '#f8f8f8',
         fontSize: 16,
         height: 43,
         color: 'black',

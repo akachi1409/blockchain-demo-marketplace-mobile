@@ -14,13 +14,13 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         marginBottom: 5,
         fontSize: 20,
-        color: 'white',
+        color: 'black',
     },
     content:{
         textAlign: 'center',
         marginBottom: 3,
         fontSize: 18,
-        color: 'white'
+        color: 'black'
     }
 })
 export default LessonQuestion;

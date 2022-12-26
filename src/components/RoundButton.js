@@ -84,7 +84,7 @@ const styles = StyleSheet.create({
 	buttonContainer: {
 		alignItems: 'center',
 		justifyContent: 'center',
-		borderRadius: 25,
+		// borderRadius: 25,
 		height: 44,
 		shadowColor: "#000",
 		shadowOffset: {

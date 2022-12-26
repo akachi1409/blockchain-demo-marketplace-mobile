@@ -110,7 +110,7 @@ function Login(props){
                   <View style={[styles.centerView, {marginTop: 0}]}>
                     <RoundButton
                       title="LOGIN"
-                      theme="orange"
+                      theme="blue"
                       style={styles.loginButton}
                       onPress={() => onLogin()} />
                   </View>
@@ -128,7 +128,7 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         height: '100%',
-        backgroundColor: '#FF0000'
+        backgroundColor: 'white'
       },
     
       contentView: {
@@ -136,7 +136,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         paddingLeft: 25,
         paddingRight: 25,
-        backgroundColor: '#FF0000'
+        backgroundColor: 'white'
         // ...ifIphoneX({
         //   marginTop: 20,
         // }, {
@@ -147,8 +147,8 @@ const styles = StyleSheet.create({
       logoImage: {
         marginTop: 100,
         marginBottom: 50,
-        width: 300,
-        height: 245,
+        width: 250,
+        height: 185,
         resizeMode: 'contain',
       },
 

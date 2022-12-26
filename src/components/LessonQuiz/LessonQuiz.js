@@ -139,6 +139,7 @@ function LessonQuiz(props){
                     placeholder={""}
                     editable={!answerOnly}
                     disabled={answerOnly}
+                    backgroundColor="#f8f8f8"
                     placeholderTextColor="#c9c9c9"
                     value={answer}
                     onChangeText = {(text)=>{
@@ -169,7 +170,7 @@ function LessonQuiz(props){
                     showCheck && complete && (
                         <RoundButton
                             title="Continue"
-                            theme="orange"
+                            theme="blue"
                             style={styles.checkButton}
                             onPress={() => advanceLessons()}
                         />
@@ -179,7 +180,7 @@ function LessonQuiz(props){
                     showCheck && !complete && (
                         <RoundButton
                             title="Check"
-                            theme="orange"
+                            theme="blue"
                             style={styles.checkButton}
                             onPress={() => checkAnswer()}
                         />
@@ -215,7 +216,7 @@ const styles = StyleSheet.create({
         fontWeight: '400',
         marginBottom: 3,
         fontSize: 20,
-        color: 'white',
+        color: 'black',
         textAlign: 'center',
         paddingLeft: 10,
         paddingRight: 10,

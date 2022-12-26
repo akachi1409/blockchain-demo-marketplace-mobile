@@ -134,7 +134,7 @@ function Contact(props) {
               <View style={[styles.centerView, {marginTop: 0}]}>
                 <RoundButton
                   title="Submit"
-                  theme="orange"
+                  theme="blue"
                   style={styles.loginButton}
                    onPress={() => handleSubmitMessage()}
                    />
@@ -150,7 +150,7 @@ function Contact(props) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'red',
+    backgroundColor: 'white',
   },
   contentView: {
     paddingTop: 30,
@@ -160,7 +160,7 @@ const styles = StyleSheet.create({
     fontWeight: '400',
     marginBottom: 3,
     fontSize: 25,
-    color: 'white',
+    color: 'black',
     textAlign: 'center',
     paddingLeft: 10,
     paddingRight: 10,
@@ -172,17 +172,17 @@ const styles = StyleSheet.create({
     paddingVertical: 2,
     marginTop: 3,
     marginBottom: 6,
-    color: 'white'
+    color: 'black'
   },
   collapseBodyBiew:{
     marginVertical: 3,
-    backgroundColor: 'red'
+    backgroundColor: 'white'
   },
   title: {
     fontWeight: '400',
     marginBottom: 3,
     fontSize: 18,
-    color: 'white',
+    color: 'black',
     textAlign: 'center',
     paddingLeft: 10,
     paddingRight: 10,
@@ -194,8 +194,8 @@ const styles = StyleSheet.create({
     color: Colors.subTextColor,
     textAlign: 'center',
     paddingRight: 10,
-    backgroundColor: 'red',
-    color:'white',
+    backgroundColor: 'white',
+    color:'black',
     borderColor: 'black'
   },
   formView: {

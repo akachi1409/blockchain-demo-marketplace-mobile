@@ -72,7 +72,7 @@ function Trade ({props, route}) {
 const styles = StyleSheet.create({
     container: {
       flex: 1,
-      backgroundColor: 'red'
+      backgroundColor: 'white'
     },
     contentView: {
       paddingTop: 30,
@@ -86,7 +86,7 @@ const styles = StyleSheet.create({
       textAlign: 'center'
     },
     flatView:{
-        borderColor:'red',
+        borderColor:'black',
         borderRadius: 3,
         borderWidth: 1,
         marginVertical: 20,

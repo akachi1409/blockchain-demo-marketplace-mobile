@@ -14,7 +14,7 @@ const styles = StyleSheet.create({
 		zIndex: 3,
         display: 'flex',
         flexDirection: 'row',
-        backgroundColor: 'red',
+        backgroundColor: 'white',
         color: '#d1d1d1',
         fontSize: '2.3em',
         alignItems: 'center',
@@ -45,6 +45,6 @@ const styles = StyleSheet.create({
 		textAlign: 'right',
         position:'absolute',
         right: 30,
-		color: 'white',
+		color: 'black',
 	},
 });

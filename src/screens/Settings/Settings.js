@@ -141,7 +141,7 @@ function Setting(){
                                 onChangeText={(text)=> setEmail(text)}/>
                             <RoundButton
                                 title="Submit"
-                                theme="orange"
+                                theme="blue "
                                 style={styles.submitButton}
                                 onPress={() => handleSubmitInfo()} 
                             />
@@ -171,7 +171,7 @@ function Setting(){
                                 onChangeText={(text)=> setRePassword(text)}/>
                             <RoundButton
                                 title="Submit"
-                                theme="orange"
+                                theme="blue"
                                 style={styles.submitButton}
                                 onPress={() => handleSubmitCredentials()} 
                             />
@@ -187,7 +187,7 @@ function Setting(){
 const styles = StyleSheet.create({
     container: {
       flex: 1,
-      backgroundColor: 'red'
+      backgroundColor: 'white'
     },
     contentView: {
         paddingTop: 30,

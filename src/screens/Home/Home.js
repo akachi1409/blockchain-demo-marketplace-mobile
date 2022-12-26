@@ -112,7 +112,7 @@ function Home(props) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'red',
+    backgroundColor: 'white',
   },
   contentView: {
     paddingTop: 30,
@@ -122,7 +122,7 @@ const styles = StyleSheet.create({
     fontWeight: '400',
     marginBottom: 3,
     fontSize: 20,
-    color: 'white'
+    color: 'black'
   },
   navigateButton: {
     // marginTop: 25,

@@ -68,7 +68,7 @@ function Learn(){
 const styles = StyleSheet.create({
     container: {
       flex: 1,
-      backgroundColor: 'red',
+      backgroundColor: 'white',
     },
     contentView: {
       paddingTop: 30,
